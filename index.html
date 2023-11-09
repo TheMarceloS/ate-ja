@@ -49,6 +49,7 @@
             border-radius: .3125rem;
             box-shadow: 0 0 .625rem rgba(0, 0, 0, 0.2);
             animation: fadeIn 1000ms;
+            user-select: none;
         }
 
         .off {
@@ -63,6 +64,22 @@
             width: 1.25rem;
             height: 1.25rem;
             opacity: 0;
+        }
+
+        .card {
+            font-size: 1rem;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            padding: .625rem;
+            border-radius: .3125rem;
+            box-shadow: .125rem .125rem .3125rem rgba(0, 0, 0, 0.5);
+            cursor: pointer;
         }
 
         @keyframes fadeIn {
@@ -84,102 +101,7 @@
 
     <button class="easter-egg"></button>
 
-    <script>
-        const messages = [
-            "Olá a todos, mais uma vez ",
-            "Chegou a minha vez de dizer adeus à casa da praia ",
-            "Antes de ir ",
-            "gostaria de compartilhar o quão incrível foi a minha jornada aqui ao lado de muitos de vocês ",
-            "Tivemos vários momentos ",
-            "desafios ",
-            "gargalhadas ",
-            "e ficam várias histórias para contar ",
-            "Aprendi muito ",
-            "e também partilhei ",
-            "pois 'a vida é muito isto' ",
-            "Agradeço sinceramente por toda a aprendizagem ",
-            "companheirismo ",
-            "e diversão ",
-            "que compartilhámos ao longo destes ",
-            "... ",
-            "quase 3 anos ",
-            "Em especial à equipa fantástica que me acolheu desde os primeiros instantes e me integrou da maneira que só eles sabem ",
-            "Muito ",
-            "obrigado! ",
-            "Embora esteja a embarcar em novas aventuras, levo comigo memórias e amizades que aqui fiz ",
-            "Obrigado por serem uma parte tão divertida e especial da minha jornada aqui na empresa ",
-            "Para terminar... ",
-            "Obrigado por clicarem no link. ",
-            "Até já ",
-            "PS: Para quem quiser e puder, amanhã vos aguardarei no Parque Oceano aka Borges! 😊",
-            "Malware Instalado. Obrigado",
-        ];
-
-        let messageIndex = 0;
-        let charIndex = 0;
-        let typingInterval = null;
-        let typingSpeed = 75;
-        const message = document.querySelector('.message');
-        const easterEgg = document.querySelector('.easter-egg');
-
-        function updateMessage() {
-            if (charIndex < messages[messageIndex].length) {
-                message.textContent += messages[messageIndex][charIndex];
-                charIndex++;
-            } else {
-                clearInterval(typingInterval);
-                if (messageIndex < messages.length - 1) {
-                    setTimeout(() => {
-                        switchToNextMessage();
-                    }, 750);
-                } else {
-                    setTimeout(turnOffPage, 2000);
-                }
-            }
-        }
-
-        setTimeout(() => {
-            startTyping();
-        }, 500);
-
-        function startTyping() {
-            typingInterval = setInterval(updateMessage, typingSpeed);
-        }
-
-        function switchToNextMessage() {
-            charIndex = 0;
-            messageIndex = (messageIndex + 1) % messages.length;
-            message.textContent = '';
-            startTyping();
-        }
-
-        function turnOffPage() {
-            document.body.innerHTML = '';
-            document.body.style.backgroundColor = '#000';
-            setTimeout(() => {
-                window.close();
-            }, 1000);
-        }
-
-        easterEgg.addEventListener("click", (e) => {
-             showEasterEgg();
-         });
-
-        function showEasterEgg() {
-            alert("São a melhor equipa! Obrigado por tudo! Obrigado do fundo do coração a cada um de vocês! 😊");
-            alert("Obrigado Rui!");
-            alert("Obrigado Abel!");
-            alert("Obrigado Carlos!");
-            alert("Obrigado Madalena!");
-            alert("Obrigado Hugo!");
-            alert("Obrigado Oscar!");
-            alert("Obrigado Pingu!");
-            alert("Obrigado Ricky!");
-            alert("Obrigado Pacheco!");
-            alert("Obrigado Lucas!");
-            alert("Obrigado Rodrigues!");
-        }
-    </script>
+    <script src="/scripts.js"></script>
 </body>
 
 </html>
