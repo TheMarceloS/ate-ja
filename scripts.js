@@ -41,7 +41,6 @@ const easterMessages = [
     "Obrigado Ricky!",
     "Obrigado Pacheco!",
     "Obrigado Lucas!",
-    "Obrigado Rodrigues!",
     "Obrigado Raul!",
     "Obrigado Rodrigues!",
     "Obrigado André!",
