@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="og:description"
+        content="Precisávamos disto? Não. É bom pra SEO, dizem. Queremos ser encontrados? Também não. Mas sabíamos que vinhas aqui espreitar, hehehe.">
+    <meta name="description"
+        content="Precisávamos disto? Não. É bom pra SEO, dizem. Queremos ser encontrados? Também não. Mas sabíamos que vinhas aqui espreitar, hehehe.">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <title>Até um dia...e Obrigado!</title>
+    <style>
+        :root {
+            font-size: 3.79vw
+        }
+
+        @media (min-width: 992px) {
+            :root {
+	            font-size: 1.1112vw;
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 1.5rem;
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            transition: background-color 2000ms;
+        }
+
+        .message-container {
+            font-size: 1.5rem;
+            text-align: center;
+            background-color: transparent;
+            padding: 1.25rem;
+            border-radius: .3125rem;
+            box-shadow: 0 0 .625rem rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1000ms;
+        }
+
+        .off {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .easter-egg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 1.25rem;
+            height: 1.25rem;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="message-container">
+        <p class="message"></p>
+    </div>
+
+    <button class="easter-egg"></button>
+
+    <script>
+        const messages = [
+            "Olá a todos, mais uma vez ",
+            "Chegou a minha vez de dizer adeus à casa da praia ",
+            "Antes de ir ",
+            "gostaria de compartilhar o quão incrível foi a minha jornada aqui ao lado de muitos de vocês ",
+            "Tivemos vários momentos ",
+            "desafios ",
+            "gargalhadas ",
+            "e ficam várias histórias para contar ",
+            "Aprendi muito ",
+            "e também partilhei ",
+            "pois 'a vida é muito isto' ",
+            "Agradeço sinceramente por toda a aprendizagem ",
+            "companheirismo ",
+            "e diversão ",
+            "que compartilhámos ao longo destes ",
+            "... ",
+            "quase 3 anos ",
+            "Em especial à equipa fantástica que me acolheu desde os primeiros instantes e me integrou da maneira que só eles sabem ",
+            "Muito ",
+            "obrigado! ",
+            "Embora esteja a embarcar em novas aventuras, levo comigo memórias e amizades que aqui fiz ",
+            "Obrigado por serem uma parte tão divertida e especial da minha jornada aqui na empresa ",
+            "Para terminar... ",
+            "Obrigado por clicarem no link. ",
+            "Até já ",
+            "PS: Para quem quiser e puder, amanhã vos aguardarei no Parque Oceano aka Borges! 😊",
+            "Malware Instalado. Obrigado",
+        ];
+
+        let messageIndex = 0;
+        let charIndex = 0;
+        let typingInterval = null;
+        let typingSpeed = 75;
+        const message = document.querySelector('.message');
+        const easterEgg = document.querySelector('.easter-egg');
+
+        function updateMessage() {
+            if (charIndex < messages[messageIndex].length) {
+                message.textContent += messages[messageIndex][charIndex];
+                charIndex++;
+            } else {
+                clearInterval(typingInterval);
+                if (messageIndex < messages.length - 1) {
+                    setTimeout(() => {
+                        switchToNextMessage();
+                    }, 750);
+                } else {
+                    setTimeout(turnOffPage, 2000);
+                }
+            }
+        }
+
+        setTimeout(() => {
+            startTyping();
+        }, 500);
+
+        function startTyping() {
+            typingInterval = setInterval(updateMessage, typingSpeed);
+        }
+
+        function switchToNextMessage() {
+            charIndex = 0;
+            messageIndex = (messageIndex + 1) % messages.length;
+            message.textContent = '';
+            startTyping();
+        }
+
+        function turnOffPage() {
+            document.body.innerHTML = '';
+            document.body.style.backgroundColor = '#000';
+            setTimeout(() => {
+                window.close();
+            }, 1000);
+        }
+
+        easterEgg.addEventListener("click", (e) => {
+             showEasterEgg();
+         });
+
+        function showEasterEgg() {
+            alert("São a melhor equipa! Obrigado por tudo! Obrigado do fundo do coração a cada um de vocês! 😊");
+            alert("Obrigado Rui!");
+            alert("Obrigado Abel!");
+            alert("Obrigado Carlos!");
+            alert("Obrigado Madalena!");
+            alert("Obrigado Hugo!");
+            alert("Obrigado Oscar!");
+            alert("Obrigado Pingu!");
+            alert("Obrigado Ricky!");
+            alert("Obrigado Pacheco!");
+            alert("Obrigado Lucas!");
+            alert("Obrigado Rodrigues!");
+        }
+    </script>
+</body>
+
+</html>
